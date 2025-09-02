@@ -1,20 +1,38 @@
 package com.example.day22oflearning
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.SimpleAdapter
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.day22oflearning.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity() {
+    lateinit var binding: ActivityMain2Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main2)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Sample profiles
+        val profiles = arrayListOf(
+            mapOf("name" to "Adnan Shaheen", "role" to "Android Developer", "image" to R.mipmap.ic_launcher_round),
+            mapOf("name" to "Imran Faiaz", "role" to "Full Stack Developer", "image" to R.mipmap.ic_launcher_round),
+            mapOf("name" to "Mubarak Shanzay", "role" to "Vice President BDS", "image" to R.mipmap.ic_launcher_round)
+        )
+
+        // Keys to map
+        val from = arrayOf("name", "role", "image")
+        val to = intArrayOf(R.id.profileName, R.id.profileRole, R.id.profileImage)
+
+        // Adapter
+        val adapter = SimpleAdapter(
+            this,
+            profiles,
+            R.layout.profile_item,
+            from,
+            to
+        )
+
+        binding.profileListView.adapter = adapter
     }
 }

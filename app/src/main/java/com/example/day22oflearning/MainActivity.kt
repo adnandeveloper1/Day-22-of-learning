@@ -1,5 +1,6 @@
 package com.example.day22oflearning
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             android.R.layout.simple_list_item_1, // built-in layout
             tasklist
         )
+        binding.openSecondBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
 
         // Attach adapter to ListView
         binding.myListView.adapter = adapter
