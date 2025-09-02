@@ -15,9 +15,9 @@ class MainActivity2 : AppCompatActivity() {
 
         // Sample profiles
         val profiles = arrayListOf(
-            mapOf("name" to "Adnan Shaheen", "role" to "Android Developer", "image" to R.mipmap.ic_launcher_round),
-            mapOf("name" to "Imran Faiaz", "role" to "Full Stack Developer", "image" to R.mipmap.ic_launcher_round),
-            mapOf("name" to "Mubarak Shanzay", "role" to "Vice President BDS", "image" to R.mipmap.ic_launcher_round)
+            mapOf("name" to "Adnan Shaheen", "role" to "Android Developer", "image" to R.drawable.adnan),
+            mapOf("name" to "Imran Faiaz", "role" to "Full Stack Developer", "image" to R.drawable.adnan),
+            mapOf("name" to "Mubarak Shanzay", "role" to "Vice President BDS", "image" to R.drawable.ic_launcher_background)
         )
 
         // Keys to map
